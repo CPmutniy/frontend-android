@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.PollVotingFragment"
+    android:padding="@dimen/page_padding">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/poll_voting_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Вопрос 1"
+            android:textAppearance="@style/HeaderText"
+            android:layout_marginBottom="5dp"/>
+        <TextView
+            android:id="@+id/poll_voting_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/poll_describing"
+            android:maxLines="5"
+            android:textAppearance="@style/OrdinaryText"
+            android:layout_marginBottom="25dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Предложение"
+            android:textAppearance="@style/HeaderText"
+            android:layout_marginBottom="5dp"/>
+        <TextView
+            android:id="@+id/poll_voting_solution"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/poll_describing"
+            android:maxLines="10"
+            android:textAppearance="@style/OrdinaryText"
+            android:layout_marginBottom="25dp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="За"
+            android:background="#7700B060"
+            android:layout_marginBottom="5dp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="Против"
+            android:layout_marginBottom="5dp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="Воздержался"
+            android:layout_marginBottom="5dp"/>
+
+    </LinearLayout>
+
+
+</FrameLayout>
