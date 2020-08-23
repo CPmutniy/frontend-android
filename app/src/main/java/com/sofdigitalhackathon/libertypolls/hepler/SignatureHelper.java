@@ -14,17 +14,22 @@ public class SignatureHelper {
     private byte[] input;
 
 
-    /*
-        Generate
-
-           try {
+    public static KeyPair Generate(){
+        KeyPairGenerator keyPairGen;
+        KeyPair keyPair = null;
+        try {
             keyPairGen = KeyPairGenerator.getInstance("DSA");
             keyPairGen.initialize(2048);                // size
             keyPair = keyPairGen.generateKeyPair();
-            Init();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return keyPair;
+    }
+    /*
+        Generate
+
+
      */
 
     /*

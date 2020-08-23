@@ -1,6 +1,10 @@
 package com.sofdigitalhackathon.libertypolls.model;
 
+import android.util.Base64;
+
 import com.google.gson.annotations.SerializedName;
+
+import java.security.PublicKey;
 
 public class User {
 
@@ -12,12 +16,19 @@ public class User {
     String surname;
     @SerializedName("patronymic")
     String patronymic;
-    @SerializedName("adress")
-    int houseId;
+
+
+    @SerializedName("flat")
+    int flatId;
+    @SerializedName("flatinfo")
+    Flat flat;
     @SerializedName("state")
     boolean activated;
+
+
+
     @SerializedName("publick_key")
-    byte[] public_key;
+    String public_key;
 
     public User(String name, String surname) {
         this.name = name;
@@ -39,16 +50,21 @@ public class User {
     public String getPatronymic() {
         return patronymic;
     }
-
-    public int getHouseId() {
-        return houseId;
+    public int getFlatId() {
+        return flatId;
     }
 
     public boolean isActivated() {
         return activated;
     }
 
-    public byte[] getPublic_key() {
-        return public_key;
+    public byte[] getPublicDecoded_key() {
+        return Base64.decode(public_key,Base64.DEFAULT);
+    }
+    public String getPublic_key() {
+        return public_key.replaceAll("\r","");
+    }
+    public Flat getFlat() {
+        return flat;
     }
 }

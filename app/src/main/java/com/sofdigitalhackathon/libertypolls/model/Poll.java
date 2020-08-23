@@ -1,49 +1,42 @@
 package com.sofdigitalhackathon.libertypolls.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class Poll {
+    @SerializedName("id")
+    int id;
+    @SerializedName("name")
     String title;
-    String description;
+    @SerializedName("adress")
+    int buildingId;
+    @SerializedName("initiatorinfo")
     User initiator;
     String time;
+    @SerializedName("questionsinfo")
     List<Question> questionList;
 
     public String getTitle() {
         return title;
     }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
     public User getInitiator() {
         return initiator;
     }
 
-    public void setInitiator(User initiator) {
-        this.initiator = initiator;
+    public int getId() {
+        return id;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public int getBuildingId() {
+        return buildingId;
     }
+
     public String getTime() {
         return time;
     }
     public List<Question> getQuestionList() {
         return questionList;
-    }
-
-    public void setQuestionList(List<Question> questionList) {
-        this.questionList = questionList;
     }
 
     public interface OnPollInteract{

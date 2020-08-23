@@ -54,6 +54,7 @@
                     android:text="Имя инициатора" />
 
                 <TextView
+                    android:id="@+id/poll_information_initiator_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Дом, квартира" />

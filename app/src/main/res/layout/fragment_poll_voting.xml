@@ -40,17 +40,19 @@
             android:textAppearance="@style/OrdinaryText"
             android:layout_marginBottom="25dp"/>
         <Button
+            android:id="@+id/poll_voting_agree"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:text="За"
-            android:background="#7700B060"
             android:layout_marginBottom="5dp"/>
         <Button
+            android:id="@+id/poll_voting_disagree"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:text="Против"
             android:layout_marginBottom="5dp"/>
         <Button
+            android:id="@+id/poll_voting_desist"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:text="Воздержался"

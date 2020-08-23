@@ -9,8 +9,16 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.sofdigitalhackathon.libertypolls.R;
 import com.sofdigitalhackathon.libertypolls.adapters.PollInformationAdapter;
+import com.sofdigitalhackathon.libertypolls.model.Flat;
 import com.sofdigitalhackathon.libertypolls.model.Poll;
 import com.sofdigitalhackathon.libertypolls.model.User;
+import com.sofdigitalhackathon.libertypolls.network.PollApi;
+
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class PollInformationActivity extends AppCompatActivity {
 
@@ -19,6 +27,7 @@ public class PollInformationActivity extends AppCompatActivity {
     TextView tvTitle;
     TextView tvInitiatorName;
     TextView tvDescription;
+    TextView tvLocation;
 //    android:id="@+id/poll_information_initiator_name"
 
     @Override
@@ -35,6 +44,7 @@ public class PollInformationActivity extends AppCompatActivity {
         tvTitle = findViewById(R.id.poll_information_title);
         tvInitiatorName = findViewById(R.id.poll_information_initiator_name);
         tvDescription = findViewById(R.id.poll_information_description);
+        tvLocation = findViewById(R.id.poll_information_initiator_location);
     }
 
 
@@ -44,7 +54,35 @@ public class PollInformationActivity extends AppCompatActivity {
         String fullName = initiator.getName() + " " +initiator.getSurname() ;
         tvTitle.setText(poll.getTitle());
         tvInitiatorName.setText(fullName);
-        tvDescription.setText(poll.getDescription());
+        int flatNum = poll.getInitiator().getFlatId();
+
+        Observable<Flat> response = new PollApi(this).GetFlat(flatNum);
+        response.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Flat>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(Flat flat) {
+                        String buildingAddress = flat.getBuilding().getName();
+                        tvLocation.setText(buildingAddress +"\n" + String.format("Кв. №%d",flatNum));
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+        //tvDescription.setText(poll.getDescription());
         PollInformationAdapter adapter = new PollInformationAdapter(getSupportFragmentManager(),poll.getQuestionList());
         viewPager.setAdapter(adapter);
     }
