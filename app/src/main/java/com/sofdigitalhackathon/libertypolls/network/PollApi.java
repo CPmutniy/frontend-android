@@ -89,4 +89,8 @@ public class PollApi {
     public Observable<Question> CreateQuestion(String title,String desc,int pollId){
         return apiHelper.createQuestion(AuthorizationKey,title,desc,pollId);
     }
+
+    public Observable<User> GetUser(int id) {
+        return apiHelper.getUser(AuthorizationKey, id);
+    }
 }

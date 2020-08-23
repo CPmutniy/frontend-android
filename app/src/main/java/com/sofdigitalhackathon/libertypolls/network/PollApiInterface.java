@@ -80,4 +80,6 @@ public interface PollApiInterface {
                                           @Field("time") String time,
                                           @Field("answer") String answer,
                                           @Field("signature") String signature);
+    @GET("/person/{id}/")
+    Observable<User> getUser(String authorizationKey, int id);
 }

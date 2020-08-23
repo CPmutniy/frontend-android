@@ -1,10 +1,16 @@
 package com.sofdigitalhackathon.libertypolls.model;
 
+import android.content.Context;
 import android.util.Base64;
 
 import com.google.gson.annotations.SerializedName;
+import com.sofdigitalhackathon.libertypolls.network.PollApi;
 
 import java.security.PublicKey;
+
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class User {
 
@@ -66,5 +72,11 @@ public class User {
     }
     public Flat getFlat() {
         return flat;
+    }
+
+
+    public Observable<User> UpdateFromServer(Context context){
+        Observable<User> response = new PollApi(context).GetUser(id);
+        return response;
     }
 }
