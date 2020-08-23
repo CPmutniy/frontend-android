@@ -49,9 +49,13 @@ public class UserActivationActivity extends AppCompatActivity {
                             bCheck.setEnabled(true);
                             GlobalData.currentUser = user;
                             Toast.makeText(getBaseContext(),"Добро пожаловать",Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                            intent.putExtra("user", new Gson().toJson(user));
-                            startActivity(intent);
+                            if(user.isActivated()){
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                intent.putExtra("user", new Gson().toJson(user));
+                                startActivity(intent);
+                            }else{
+                                Toast.makeText(getBaseContext(),"Еще не активировали",Toast.LENGTH_LONG).show();
+                            }
                         }
 
                         @Override

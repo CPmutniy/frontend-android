@@ -81,5 +81,5 @@ public interface PollApiInterface {
                                           @Field("answer") String answer,
                                           @Field("signature") String signature);
     @GET("/person/{id}/")
-    Observable<User> getUser(String authorizationKey, int id);
+    Observable<User> getUser(@Header("Authorisation") String authorizationKey,@Path("id") int id);
 }
