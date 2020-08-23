@@ -1,5 +1,6 @@
 package com.sofdigitalhackathon.libertypolls.ui.fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -13,13 +14,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
+import com.sofdigitalhackathon.libertypolls.ui.activity.PollCreatingActivity;
 import com.sofdigitalhackathon.libertypolls.R;
 import com.sofdigitalhackathon.libertypolls.adapters.PollItemAdapter;
-import com.sofdigitalhackathon.libertypolls.model.Building;
 import com.sofdigitalhackathon.libertypolls.model.Flat;
 import com.sofdigitalhackathon.libertypolls.model.Poll;
-import com.sofdigitalhackathon.libertypolls.model.Question;
 import com.sofdigitalhackathon.libertypolls.model.User;
 import com.sofdigitalhackathon.libertypolls.network.PollApi;
 import com.sofdigitalhackathon.libertypolls.ui.activity.PollInformationActivity;
@@ -38,7 +39,9 @@ import io.reactivex.schedulers.Schedulers;
  */
 public class PollMainFragment extends Fragment {
 
+    private static final int CREATE_REQUEST = 0;
     RecyclerView recyclerView;
+    FloatingActionButton floatingActionButton;
     List<Poll> pollList = new ArrayList<>();
     User user;
 
@@ -70,12 +73,16 @@ public class PollMainFragment extends Fragment {
 
     private void InitReferences() {
         recyclerView = getView().findViewById(R.id.poll_main_recycleview);
+        floatingActionButton = getView().findViewById(R.id.poll_main_add_voting);
     }
 
     private void Init() {
         GetPolls();
+        floatingActionButton.setOnClickListener(view -> {
+            Intent intent = new Intent(getContext(), PollCreatingActivity.class);
+            startActivityForResult(intent, CREATE_REQUEST);
+        });
     }
-
     private void GetPolls() {
         Observable<Flat> response = new PollApi(getContext()).GetFlat(user.getFlat().getId());
         response.subscribeOn(Schedulers.io())
@@ -111,5 +118,11 @@ public class PollMainFragment extends Fragment {
                 });
     }
 
-
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == CREATE_REQUEST && resultCode == Activity.RESULT_OK){
+            GetPolls();
+        }
+    }
 }

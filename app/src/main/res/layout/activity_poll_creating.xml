@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.PollCreatingActivity"
+    android:padding="@dimen/page_padding"
+    android:orientation="vertical">
+<com.google.android.material.textfield.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Название собрания"
+    app:counterEnabled="true"
+    app:counterMaxLength="80"
+    android:layout_marginBottom="@dimen/page_padding">
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/poll_creator_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</com.google.android.material.textfield.TextInputLayout>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center">
+    <Button
+        android:id="@+id/poll_creator_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Добавить обсуждение"
+        android:layout_alignParentStart="true"
+
+        />
+    <Button
+        android:id="@+id/poll_creator_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Создать"
+        android:layout_alignParentEnd="true"
+        />
+</RelativeLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/poll_creator_recycleview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:nestedScrollingEnabled="false"
+            />
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

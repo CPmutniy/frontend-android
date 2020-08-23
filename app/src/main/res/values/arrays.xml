@@ -16,4 +16,26 @@
         <item>Об утвверждении единоразового целевого взноса на ремонт (модернизацию) лифтового оборудования</item>
         <item>Об утвверждении единоразового целевого взноса на ремонт (модернизацию) лифтового оборудования</item>
     </string-array>
+
+    <string-array name="notification_titles">
+        <item>Запланированные ремонтные работы</item>
+        <item>Показание счетчиков</item>
+        <item>Обновление тарифов</item>
+        <item>Голосование началось</item>
+        <item>Внимание лифт не работает</item>
+    </string-array>
+    <string-array name="notification_descriptions">
+        <item>Начинаются работы по устройству двора дома</item>
+        <item>С 20.02.20 по 28.02.20 будут сниматься показания счетчиков</item>
+        <item>С 01.03.20 ожидается повышение тарифов ЖКХ</item>
+        <item>Собрать с каждого по 500 рублей на ремонт подъезда</item>
+        <item>Лифт сломан</item>
+    </string-array>
+    <integer-array name="notification_modes">
+        <item>1</item>  <!-- Repair -->
+        <item>2</item>  <!-- Indicators -->
+        <item>0</item>  <!-- Important -->
+        <item>0</item>  <!-- Important -->
+        <item>1</item>  <!-- Repair -->
+    </integer-array>
 </resources>

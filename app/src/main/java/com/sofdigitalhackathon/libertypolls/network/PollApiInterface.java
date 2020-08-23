@@ -46,9 +46,21 @@ public interface PollApiInterface {
     @GET("/voting/")
     Observable<List<Poll>> getPolls(@Header("Authorisation") String key);
 
+    @FormUrlEncoded
+    @POST("/voting/")
+    Observable<Poll> createPoll(@Header("Authorisation") String key,
+                                @Field("name") String name,
+                                @Field("adress") int building,
+                                @Field("initiator") int user);
+
     @GET("/question/")
     Observable<List<Question>> getQuestions(@Header("Authorisation") String key);
-
+    @FormUrlEncoded
+    @POST("/question/")
+    Observable<Question> createQuestion(@Header("Authorisation") String key,
+                                @Field("name") String name,
+                                @Field("description") String desc,
+                                @Field("voting") int pollId);
     @GET("/answer/")
     Observable<List<Answer>> getAnswers(@Header("Authorisation") String key);
 

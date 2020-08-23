@@ -18,5 +18,15 @@
             android:nestedScrollingEnabled="false"
             />
     </androidx.core.widget.NestedScrollView>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/poll_main_add_voting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:backgroundTint="#FFFFFF"
+        android:tint="#777777"
+        android:src="@drawable/ic_add"
+        android:scaleType="centerInside"
+        android:layout_margin="16dp" />
 
 </FrameLayout>

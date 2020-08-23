@@ -6,10 +6,42 @@
     tools:context=".ui.fragment.SettingsFragment"
     android:padding="@dimen/page_padding">
     >
-
-    <TextView
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/settings_name"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Settings" />
+        android:layout_height="wrap_content"
+        android:hint="Имя"
+        android:enabled="false"
+        android:layout_marginBottom="10dp"/>
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/settings_surname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Фамилия"
+        android:enabled="false"/>
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/settings_patronymic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Отчество"
+        android:enabled="false"
+        android:layout_marginBottom="10dp"/>
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/settings_building"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Дом"
+        android:enabled="false"/>
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/settings_flat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Квартира"
+        android:enabled="false"/>
+</LinearLayout>
 
 </FrameLayout>

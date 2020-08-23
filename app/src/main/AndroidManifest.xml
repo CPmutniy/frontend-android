@@ -14,7 +14,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.activity.UserActivationActivity"></activity>
+        <activity android:name=".ui.activity.PollCreatingActivity"></activity>
+        <activity android:name=".ui.activity.PollSummary" />
+        <activity android:name=".ui.activity.UserActivationActivity" />
         <activity android:name=".ui.activity.PollInformationActivity" />
         <activity android:name=".ui.activity.RegistrationProcessingActivity" />
         <activity android:name=".ui.activity.MainActivity" />

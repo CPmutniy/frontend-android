@@ -17,14 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PollItemAdapter extends RecyclerView.Adapter<PollItemAdapter.ViewHolder> {
-    final String TAG = "MeetingsListAdapter";
     LayoutInflater inflater;
     List<Poll> allPolls = new ArrayList<>();
     private Poll.OnPollInteract pollItemEvent;
 
-    public PollItemAdapter(Context context, List<Poll> allMeetings) {
+    public PollItemAdapter(Context context, List<Poll> polls) {
         this.inflater = LayoutInflater.from(context);
-        allPolls = allMeetings;
+        allPolls = polls;
     }
 
     @NonNull

@@ -105,6 +105,10 @@ public class LoginActivity extends AppCompatActivity {
                                     break;
                                 }
                             }
+                            if(registeredUser == null){
+                                linearLayout.setVisibility(View.VISIBLE);
+                                GetHouses();
+                            }
                         }
 
                         @Override

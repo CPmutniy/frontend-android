@@ -83,4 +83,10 @@ public class PollApi {
         String signature = " SIGN HERE WITH PUCLIC KEY";
         return apiHelper.createAnswer(AuthorizationKey,user,question,time,answer,signature);
     }
+    public Observable<Poll> CreatePoll(String title,int building,int user){
+        return apiHelper.createPoll(AuthorizationKey,title,building,user);
+    }
+    public Observable<Question> CreateQuestion(String title,String desc,int pollId){
+        return apiHelper.createQuestion(AuthorizationKey,title,desc,pollId);
+    }
 }

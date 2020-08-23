@@ -3,7 +3,9 @@ package com.sofdigitalhackathon.libertypolls.ui.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -28,7 +30,7 @@ public class PollInformationActivity extends AppCompatActivity {
     TextView tvInitiatorName;
     TextView tvDescription;
     TextView tvLocation;
-//    android:id="@+id/poll_information_initiator_name"
+    Button bSummary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class PollInformationActivity extends AppCompatActivity {
         tvInitiatorName = findViewById(R.id.poll_information_initiator_name);
         tvDescription = findViewById(R.id.poll_information_description);
         tvLocation = findViewById(R.id.poll_information_initiator_location);
+        bSummary = findViewById(R.id.poll_information_summary);
     }
 
 
@@ -83,6 +86,11 @@ public class PollInformationActivity extends AppCompatActivity {
                     }
                 });
         //tvDescription.setText(poll.getDescription());
+        bSummary.setOnClickListener(view -> {
+            Intent intent = new Intent(getBaseContext(),PollSummary.class);
+            intent.putExtra("questions",new Gson().toJson(poll.getQuestionList()));
+            startActivity(intent);
+        });
         PollInformationAdapter adapter = new PollInformationAdapter(getSupportFragmentManager(),poll.getQuestionList());
         viewPager.setAdapter(adapter);
     }
